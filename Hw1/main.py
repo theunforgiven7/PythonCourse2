@@ -1,6 +1,6 @@
 #Checking the text for a palindrome
 
-word = input('Введи слово:')
+word = input('Введи слово/рядок:')
 word = word.lower()
 word = word.replace(' ', '')
 reversed_w = word[::-1]
