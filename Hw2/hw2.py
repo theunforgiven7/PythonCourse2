@@ -16,4 +16,4 @@ arr = [6, 6, 2, 1, 5, 8, 13, 21, 34, 55, 89]
 
 bar = [1, 18, 3, 4, 5, 9, 7, 8, 9, 10, 11, 12, 13]
 
-print([i for i in arr if i not in bar] + [i for i in bar if i not in arr])
+print(list(set(arr) ^ set(bar)))
