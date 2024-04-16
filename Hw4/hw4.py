@@ -2,7 +2,7 @@
 """Task 1"""
 
 
-list1 = [1, 10, 4, 13, 22, 10, 0 , 105, 12, 11, 105]
+#list1 = [1, 10, 4, 13, 22, 10, 0 , 105, 12, 11, 105]
 
 
 def return_max(list1: list)->int:
@@ -13,14 +13,12 @@ def return_max(list1: list)->int:
     Returns:
         int: returns the largest even number from the list
     """
-    try:
-        mux = max([mux for mux in list1 if mux % 2 == 0])
-        return mux
-    except ValueError:
-        return print('No even numbers')
+    mux = max([mux for mux in list1 if mux % 2 == 0])
+    return mux
 
 
 print(return_max(list1=))
+
 
 
 
