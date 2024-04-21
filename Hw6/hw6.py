@@ -1,4 +1,13 @@
-def find_winner(filename):
+def find_winner(filename: str)->str:
+    """
+    Function to determine the winner of the presidential election.
+
+    Arguments:
+    filename(str): The name of the file with voting data.
+
+    Returns:
+    str: The name of the winner or a message indicating that a third round of voting is required.
+    """
     results = {}
     with open(filename, 'r') as file:
         for line in file:
