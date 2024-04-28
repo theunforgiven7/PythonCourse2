@@ -23,7 +23,7 @@ def process_datesearch_text(your_file):
             most_popular_vowels.append((max_vowel, vowel_counts[max_vowel]))
             del vowel_counts[max_vowel]
         result = 'Найпопулярніші голосні літери - ' + ', '.join([f'{char}: {count}' for char, count in most_popular_vowels])
-    else:
+    elif sum_consonants > sum_vowels:
         most_popular_consonant = None
         max_count = 0
         for b, count in consonant_counts.items():
@@ -31,7 +31,8 @@ def process_datesearch_text(your_file):
                 most_popular_consonant = (b, count)
                 max_count = count
         result = 'Найпопулярніша приголосна літера - ' + f'{most_popular_consonant[0]}: {most_popular_consonant[1]}'
-
+    else:
+        result = 'Однакова кількість приголосних та голосних літер '
     with open('Hw7/output.txt', 'w', encoding='utf-8') as file:
         file.write(result)
         
