@@ -1,7 +1,7 @@
 # vowels = 'aeiou'
 # consonants = 'bcdfghjklmnpqrstvwxyz'
 
-def process_text(your_file):
+def process_datesearch_text(your_file):
     vowels = 'aaeiouyаеёиоуыэюя'
     consonants = 'bcdfghjklmnpqrstvwxzбвгджзйклмнпрстфхцчшщ'
 
@@ -26,9 +26,9 @@ def process_text(your_file):
     else:
         most_popular_consonant = None
         max_count = 0
-        for char, count in consonant_counts.items():
+        for b, count in consonant_counts.items():
             if count > max_count:
-                most_popular_consonant = (char, count)
+                most_popular_consonant = (b, count)
                 max_count = count
         result = 'Найпопулярніша приголосна літера - ' + f'{most_popular_consonant[0]}: {most_popular_consonant[1]}'
 
@@ -38,4 +38,4 @@ def process_text(your_file):
     return  result
 
 
-print(process_text('Hw7/input_8.txt'))
+print(process_datesearch_text('Hw7/input_8.txt'))
