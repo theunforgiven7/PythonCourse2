@@ -2,6 +2,15 @@
 # consonants = 'bcdfghjklmnpqrstvwxyz'
 
 def process_datesearch_text(your_file):
+    """
+    Функція для знаходження найпорпулярніщих літер та знаходження кількості голосних/приголосних літер
+    Args:
+        your_file (txt): файл з текстом(літери)
+
+    Returns:
+        int: Кількість голосних/приголосних літер
+        str: 3 найпопулярніших літери або найпопулярнішу приголосну літеру
+    """
     vowels = 'aaeiouyаеёиоуыэюя'
     consonants = 'bcdfghjklmnpqrstvwxzбвгджзйклмнпрстфхцчшщ'
 
