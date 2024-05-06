@@ -1,5 +1,5 @@
 
-def date_search_text(FilePath):
+def date_search_text(FilePath: str)->str:
     """
     This function reads a text file, finds the shortest and most used words
     and replaces all occurrences of this word in the text with
