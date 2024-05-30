@@ -3,7 +3,7 @@ from datetime import datetime
 
 def sort_func_train(trains_lst: list) -> list:
     """
-    Функція для сортування списку 
+    Функція для сортування списку об'єктів класа Train
     Реалізує сортування  за пунктом призначення та часом
     Args:
         trains_lst (list): ваш ліст
