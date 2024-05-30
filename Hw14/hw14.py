@@ -1,12 +1,31 @@
 from datetime import datetime
 
 
-def sort_func_train(trains_lst):
+def sort_func_train(trains_lst: list) -> list:
+    """
+    Функція для сортування списку 
+    Реалізує сортування  за пунктом призначення та часом
+    Args:
+        trains_lst (list): ваш ліст
+
+    Returns:
+        list: відсортованний ліст
+    """
     return sorted(trains_lst, key=lambda t: (t.item, t.date_t))
 
 
 class Train:
-    def __init__(self, item: int, num_train: int, date_t: datetime):
+    """
+    Клас для представлення потяга(пункт призначення, номер потягу,час відправлення )
+    """
+    def __init__(self, item: str, num_train: int, date_t: datetime):
+        """
+        Ініціалізує об'єкти класу Train
+        Args:
+            item (str): пункт призначення
+            num_train (int): номер потягу
+            date_t (datetime): час відправлення
+        """
         self.item = item
         self.num_train = num_train
         if date_t < datetime.now():
