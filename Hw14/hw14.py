@@ -14,8 +14,8 @@ class Train:
             num_train (int): номер потягу
             date_t (datetime): час відправлення
         """
-        self.__item = item
-        self.__num_train = num_train
+        self.item = item
+        self.num_train = num_train
         self.date_t = date_t
 
     @property
