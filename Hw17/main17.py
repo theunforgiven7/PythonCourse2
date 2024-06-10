@@ -33,7 +33,7 @@ with connect('C:/Users/mariy/Downloads/tes.db') as con:
 
     cur.execute('''CREATE TABLE "Table_3" (
         "id"	INTEGER,
-        "name"	TEXT UNIQUE,
+        "name"	TEXT,
         "num"	INTEGER NOT NULL,
         "date"	INTEGER,
         "big_num"	INTEGER,
