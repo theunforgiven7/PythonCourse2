@@ -2,24 +2,6 @@ import json
 from calculator15 import Calculator, a
 
 
-class FileNotFoundError(Exception):
-    """
-    Клас виключення класа File_maker
-    """
-    def __init__(self, filename: str) -> None:
-        """
-        Метод створення об'єкта класу виключення
-        """
-        self.message = f'Файл не знайдено - {filename}'
-
-    def __str__(self) -> str:
-        """
-        Рядкове представлдення об'єкта класу виключення
-        return: опис виключення
-        """
-        return self.message
-
-
 class File_maker:
     """
     Клас для роботи з файлами у форматі JSON
@@ -48,18 +30,14 @@ class File_maker:
         Returns:
             dict
         """
-        try:
-            with open(self.filename, 'r') as f:
-                return json.load(f)
-        except FileNotFoundError:
-            print(f"Файл {self.filename} не знайдено.")
-            return {}
+        with open(self.filename, 'r') as f:
+            return json.load(f)
 
-    def sum_of_first_five(self):
+    def sum_of_first_five_num(self):
         """
         Обчислює суму перших п'яти значень у dict, завантаженому з файлу
         Returns:
-            int or float:  Сума перших п'яти значень, інакше повертає 0
+            int or float:  Сумy перших п'яти значень, інакше повертає 0
         """
         dict1 = self.load_dict()
         if len(dict1) < 5:
@@ -74,5 +52,5 @@ file_task.save_dict(a.get())
 loaded_dict = file_task.load_dict()
 print(loaded_dict)
 
-sum_result = file_task.sum_of_first_five()
+sum_result = file_task.sum_of_first_five_num()
 print("Сума перших 5 результатів:", sum_result)
