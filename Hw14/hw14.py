@@ -1,22 +1,10 @@
+
 from datetime import datetime
-
-
-def sort_func_train(trains_lst: list) -> list:
-    """
-    Функція для сортування списку об'єктів класа Train
-    Реалізує сортування  за пунктом призначення та часом
-    Args:
-        trains_lst (list): ваш ліст
-
-    Returns:
-        list: відсортованний ліст
-    """
-    return sorted(trains_lst, key=lambda t: (t.item, t.date_t))
 
 
 class Train:
     """
-    Клас для представлення потяга(пункт призначення, номер потягу,час відправлення )
+    Клас для представлення потяга (пункт призначення, номер потягу, час відправлення)
     """
     def __init__(self, item: str, num_train: int, date_t: datetime):
         """
@@ -26,10 +14,45 @@ class Train:
             num_train (int): номер потягу
             date_t (datetime): час відправлення
         """
-        self.item = item
-        self.num_train = num_train
-        if date_t < datetime.now():
-            print('date_t не може бути меньшим за поточний час')
-            self.date_t = datetime.now()
+        self.__item = item
+        self.__num_train = num_train
+        self.date_t = date_t 
+
+    @property
+    def item(self) -> str:
+        """Гетер для атрибуту пункт призначення"""
+        return self.__item
+
+    @item.setter
+    def item(self, value: str):
+        """Сетер-метод для атрибуту пункт призначення"""
+        if not value:
+            raise ValueError("пункт призначення не може бути порожнім")
+        self.__item = value
+
+    @property
+    def num_train(self) -> int:
+        """Гетер-метод для атрибуту номер потягу"""
+        return self.__num_train
+
+    @num_train.setter
+    def num_train(self, value: int):
+        """Сетер-метод для атрибуту номер потягу"""
+        if value <= 0:
+            raise ValueError("Номер потягу має бути додатнім числом")
+        self.__num_train = value
+
+    @property
+    def date_t(self) -> datetime:
+        """Гетер-метод для атрибуту час відправлення"""
+        return self.__date_t
+
+    @date_t.setter
+    def date_t(self, value: datetime):
+        """Сетер для атрибуту час відправлення"""
+        if value < datetime.now():
+            print('date_t не може бути меншим за поточний час')
+            self.__date_t = datetime.now()
         else:
-            self.date_t = date_t
+            self.__date_t = value
+
