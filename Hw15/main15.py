@@ -22,16 +22,32 @@ class FileNotFoundError(Exception):
 
 class File_maker:
     """
-    
+    Клас для роботи з файлами у форматі JSON
+    дозволяє зберігати словники даних у файл та завантажувати дані з файлу
     """
     def __init__(self, filename: str) -> None:
+        """
+        Ініціалізатор об'єкта класу File_maker
+        Args:
+            filename (str): назва файлу для збереження або завантаження даних
+        """
         self.filename = filename
 
     def save_dict(self, dict1: dict) -> None:
+        """
+        Зберігає словник у файл у форматі JSON
+        Args:
+            dict1 (dict)
+        """
         with open(self.filename, 'w') as f:
             json.dump(dict1, f, indent=4, ensure_ascii=False)
 
     def load_dict(self) -> dict:
+        """
+        Завантажує дані з файлу у вигляді словника
+        Returns:
+            dict
+        """
         try:
             with open(self.filename, 'r') as f:
                 return json.load(f)
@@ -40,6 +56,11 @@ class File_maker:
             return {}
 
     def sum_of_first_five(self):
+        """
+        Обчислює суму перших п'яти значень у dict, завантаженому з файлу
+        Returns:
+            int or float:  Сума перших п'яти значень, інакше повертає 0
+        """
         dict1 = self.load_dict()
         if len(dict1) < 5:
             print("У файлі менше п'яти записів(прикладів).")
