@@ -20,7 +20,7 @@ class Train:
 
     @property
     def item(self) -> str:
-        """Гетер для атрибуту пункт призначення"""
+        """Гетер-метод для атрибуту пункт призначення"""
         return self.__item
 
     @item.setter
