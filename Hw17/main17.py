@@ -3,7 +3,7 @@ from sqlite3 import connect
 
 
 def create_database(database: str) -> None:
-    conn = sqlite3.connect(database + '.sqlite3')
+    conn = sqlite3.connect(database + '.sqlite')
     conn.close()
 
 
