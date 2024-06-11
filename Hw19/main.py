@@ -1,10 +1,25 @@
 class List:
-    def __init__(self, list_for_search) -> None:
-        self.list: list = list_for_search
+    """
+    Class to delete selected elements in the list
+    """
+    def __init__(self, list1: list) -> None:
+        """
+        Initializes the List object
+        Args:
+            list_for_remove (list): the initial list
+        """
+        self.list: list = list1
 
-    def deletter_elements(self, list_for_search: list) -> None:
-        self.list = [i for i in self.list if i not in list_for_search]
-        print(self.list)
+    def deletter_elements(self, list_for_remove: list) -> None:
+        """
+        Removes selected elements from the list
+        Args:
+            list_for_remove (list): the list of elements to remove
+        Return:
+            list(list): Sorted list
+        """
+        self.list = [el for el in self.list if el not in list_for_remove]
+        return (self.list)
 
 
 list_1 =  [1, 1, 2 ,3 ,1 ,2 ,3 ,4]  # де видаляти
