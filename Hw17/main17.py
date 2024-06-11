@@ -2,40 +2,42 @@ import sqlite3
 from sqlite3 import connect
 
 
-def create_database(database_name: str) -> None:
-    conn = sqlite3.connect(database_name + '.sqlite3')
+def create_database(database: str) -> None:
+    conn = sqlite3.connect(database + '.sqlite3')
     conn.close()
 
 
-database_name: str = input("Надайте назву для нової бази даних: ")
-create_database(database_name)
+database: str = input("Надайте назву для нової бази даних: ")
+create_database(database)
 
-with connect('C:/Users/mariy/Downloads/tes.db') as con:
+with connect(database) as con:
     cur = con.cursor()
 
-    cur.execute('''CREATE TABLE "Table_1" (
+    cur.execute('''CREATE TABLE IF NOT EXISTS "Table_1" (
         "id"	INTEGER,
         "name"	TEXT,
         "num"	INTEGER,
-        "date"	INTEGER,
+        "date"	TEXT,
         "big_num"	INTEGER,
         PRIMARY KEY("id" AUTOINCREMENT)
 )''')
 
-    cur.execute('''CREATE TABLE "Table_2" (
+    cur.execute('''CREATE TABLE IF NOT EXISTS "Table_2" (
         "id"	INTEGER,
         "name"	TEXT UNIQUE,
         "num"	INTEGER,
-        "date"	INTEGER,
+        "date"	TEXT,
         "big_num"	INTEGER,
         PRIMARY KEY("id" AUTOINCREMENT)
 )''')
 
-    cur.execute('''CREATE TABLE "Table_3" (
+    cur.execute('''CREATE TABLE IF NOT EXISTS "Table_3" (
         "id"	INTEGER,
         "name"	TEXT,
         "num"	INTEGER NOT NULL,
-        "date"	INTEGER,
+        "date"	TEXT,
         "big_num"	INTEGER,
         PRIMARY KEY("id" AUTOINCREMENT)
 )''')
+
+    con.commit()
