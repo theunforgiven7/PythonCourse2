@@ -11,7 +11,7 @@ with connect('C:/Users/mariy/Downloads/Chinook_Sqlite.sqlite') as con:
     # 2
     cur.execute('''SELECT SUM(Total)
                                 FROM Invoice''')
-    print(*cur.fetchone(), sep ='\n')
+    print(*cur.fetchone())
 
     # 3
     cur.execute('''SELECT *
