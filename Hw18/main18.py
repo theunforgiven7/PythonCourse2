@@ -3,7 +3,7 @@ from sqlite3 import connect
 
 with connect('C:/Users/mariy/Downloads/Chinook_Sqlite.sqlite') as con:
     cur = con.cursor()
-    # 1
+    1
     cur.execute('''SELECT * FROM Customer
                                 LIMIT 3''')
     print(*cur.fetchall(), sep ='\n')
@@ -20,13 +20,11 @@ with connect('C:/Users/mariy/Downloads/Chinook_Sqlite.sqlite') as con:
     print(*cur.fetchall(), sep ='\n')
 
     # 4
-    cur.execute('''SELECT InvoiceDate
-                            FROM Invoice
-                            ORDER BY InvoiceDate ASC''')
+    cur.execute('''SELECT MIN(InvoiceDate)
+                            FROM Invoice''')
     print(*cur.fetchone())
 
     # 5
-    cur.execute('''SELECT InvoiceDate
-                            FROM Invoice
-                            ORDER BY InvoiceDate DESC''')
+    cur.execute('''SELECT MAX(InvoiceDate)
+                            FROM Invoice''')
     print(*cur.fetchone())
