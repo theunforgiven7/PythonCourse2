@@ -10,7 +10,7 @@ class List:
         """
         self.list: list = list1
 
-    def deletter_elements(self, list_for_remove: list) -> None:
+    def deletter_elements(self, list_for_remove: list) -> list:
         """
         Removes selected elements from the list
         Args:
