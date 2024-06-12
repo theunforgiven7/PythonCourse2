@@ -2,29 +2,31 @@ class List:
     """
     Class to delete selected elements in the list
     """
-    def __init__(self, list1: list) -> None:
+    def __init__(self, list_1: list) -> None:
         """
-        Initializes the List object
+        initializes a new instance of the List class
         Args:
-            list_for_remove (list): the initial list
+            list_1 (list): the list to be managed
         """
-        self.list: list = list1
+        self.list_1 = list_1
 
-    def deletter_elements(self, list_for_remove: list) -> list:
+    def remove_elements(self, val: list) -> list:
         """
-        Removes selected elements from the list
+        removes selected elements from the list
         Args:
-            list_for_remove (list): the list of elements to remove
-        Return:
-            list(list): Sorted list
+            val (list): the list of elements to be removed from the list
+
+        Returns:
+            list_1(list): the list after the specified elements have been removed
         """
-        self.list = [el for el in self.list if el not in list_for_remove]
-        return (self.list)
+        self.list_1 = [x for x in self.list_1 if x not in val]
+        return self.list_1
 
 
-list_1 =  [1, 1, 2 ,3 ,1 ,2 ,3 ,4]  # де видаляти
-val = [1, 3]  # що видаляти
-# [2, 2, 4]  # відповідь після видалення
+list_1 =  [1, 1, 2 ,3 ,1 ,2 ,3 ,4] # де видаляти
+val = [1, 3] # що видаляти
+# [2, 2, 4] #відповідь після видалення
 
 a = List(list_1)
-print(a.deletter_elements(val))
+
+print(a.remove_elements(val))
