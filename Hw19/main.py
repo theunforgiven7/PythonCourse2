@@ -19,7 +19,7 @@ class List:
         Returns:
             list_1(list): the list after the specified elements have been removed
         """
-        self.lst_1 = [x for x in self.lst_1 if x not in val]
+        self.lst_1 = [el for el in self.lst_1 if el not in val]
         return self.lst_1
 
 
