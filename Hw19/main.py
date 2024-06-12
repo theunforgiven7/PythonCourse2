@@ -2,13 +2,13 @@ class List:
     """
     Class to delete selected elements in the list
     """
-    def __init__(self, list_1: list) -> None:
+    def __init__(self, lst_1: list) -> None:
         """
         initializes a new instance of the List class
         Args:
             list_1 (list): the list to be managed
         """
-        self.list_1 = list_1
+        self.lst_1 = lst_1
 
     def remove_elements(self, val: list) -> list:
         """
@@ -19,8 +19,8 @@ class List:
         Returns:
             list_1(list): the list after the specified elements have been removed
         """
-        self.list_1 = [x for x in self.list_1 if x not in val]
-        return self.list_1
+        self.lst_1 = [x for x in self.lst_1 if x not in val]
+        return self.lst_1
 
 
 list_1 =  [1, 1, 2 ,3 ,1 ,2 ,3 ,4] # де видаляти
