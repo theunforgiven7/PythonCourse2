@@ -15,11 +15,6 @@ with connect('Chinook_Sqlite.sqlite') as con:
                                 ''')
     print(*cur.fetchone())
 
-    cur.execute('''SELECT Country, COUNT(*) AS CustomerCount
-                                        FROM Customer
-                                        GROUP BY Country
-                                ''')
-    print(*cur.fetchone())
 
     cur.execute('''
     SELECT 
