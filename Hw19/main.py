@@ -11,7 +11,7 @@ with connect('Chinook_Sqlite.sqlite') as con:
 
     cur.execute('''SELECT COUNT(*)
                                 FROM Customer
-                                WHERE Company is NULL and Fax is NULL
+                                WHERE Company is NULL AND Fax is NULL
                                 ''')
     print(*cur.fetchone())
 
