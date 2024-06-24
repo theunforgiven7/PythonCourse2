@@ -26,7 +26,7 @@ with connect('Chinook_Sqlite.sqlite') as con:
         CASE
             WHEN Country IN ('Belgium', 'Czech Republic', 'Denmark',
             'Finland', 'France', 'Germany', 'Hungary', 'Ireland',
-            'Italy', 'Netherlands', 'Norway', 'Poland', 'Portugal',
+            'Italy', 'India', 'Netherlands', 'Norway', 'Poland', 'Portugal',
             'Spain', 'Sweden', 'United Kingdom', 'Australia')
             THEN 'Eurasia'
             WHEN Country IN ('Canada', 'USA') THEN 'North America'
