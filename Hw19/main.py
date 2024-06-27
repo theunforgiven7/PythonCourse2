@@ -20,12 +20,12 @@ with connect('Chinook_Sqlite.sqlite') as con:
     SELECT
         CASE
             WHEN SUBSTR(Phone, 1, 2) IN ('+1') THEN 'North America'
-            WHEN SUBSTR(Phone, 1, 3) IN ('+44', '+49', '+61', '+43', '+32',
+            WHEN SUBSTR(Phone, 1, 3) IN ('+44', '+49', '+43', '+32',
             '+33', '+49', '+91', '+39', '+31',
             '+47', '+48', '+34', '+46', '+44') THEN 'Eurasia'
             WHEN SUBSTR(Phone, 1, 4) IN ('+353', '+358', '+351', '+453', '+420')
             THEN 'Eurasia'
-            WHEN SUBSTR(Phone, 1, 3) LIKE '+61' THEN 'Australia'
+            WHEN SUBSTR(Phone, 1, 3) IN ('+61') THEN 'Australia'
             WHEN SUBSTR(Phone, 1, 3) IN ('+54', '+55', '+56')
             THEN 'South America'
             ELSE 'Other'
@@ -36,6 +36,5 @@ with connect('Chinook_Sqlite.sqlite') as con:
     GROUP BY
         ContinentCustomer
     ''')
-    print(*cur.fetchall(), sep='\n')
 
     print(*cur.fetchall(), sep='\n')
