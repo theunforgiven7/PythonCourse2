@@ -17,22 +17,25 @@ with connect('Chinook_Sqlite.sqlite') as con:
 
 
     cur.execute('''
-    SELECT 
+    SELECT
         CASE
-            WHEN Country IN ('Belgium', 'Czech Republic', 'Denmark',
-            'Finland', 'France', 'Germany', 'Hungary', 'Ireland',
-            'Italy', 'India', 'Netherlands', 'Norway', 'Poland', 'Portugal',
-            'Spain', 'Sweden', 'United Kingdom', 'Australia', 'Austria')
+            WHEN SUBSTR(Phone, 1, 2) IN ('+1') THEN 'North America'
+            WHEN SUBSTR(Phone, 1, 3) IN ('+44', '+49', '+61', '+43', '+32',
+            '+33', '+49', '+91', '+39', '+31',
+            '+47', '+48', '+34', '+46', '+44') THEN 'Eurasia'
+            WHEN SUBSTR(Phone, 1, 4) IN ('+353', '+358', '+351', '+453', '+420')
             THEN 'Eurasia'
-            WHEN Country IN ('Canada', 'USA') THEN 'North America'
-            WHEN Country IN ('Argentina', 'Brazil', 'Chile') THEN 'South America'
-            ELSE 'unknow'
+            WHEN SUBSTR(Phone, 1, 3) LIKE '+61' THEN 'Australia'
+            WHEN SUBSTR(Phone, 1, 3) IN ('+54', '+55', '+56')
+            THEN 'South America'
+            ELSE 'Other'
         END AS ContinentCustomer,
         COUNT(CustomerId) AS "кількість покупців"
-    FROM 
+    FROM
         Customer
-    GROUP BY 
+    GROUP BY
         ContinentCustomer
     ''')
+    print(*cur.fetchall(), sep='\n')
 
     print(*cur.fetchall(), sep='\n')
