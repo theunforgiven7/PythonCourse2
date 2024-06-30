@@ -174,9 +174,9 @@ class Track(Model):
 
 """2"""
 
-# name = Genre.select().where(fn.Length(Genre.Name) > 8)
-# name_diict = {g.GenreId: g.Name for g in name}
-# print(name_diict, sep='\n')
+name = Genre.select().where(Genre.Name.length() > 8)
+name_diict = {g.GenreId: g.Name for g in name}
+print(name_diict, sep='\n')
 
 """3"""
 
