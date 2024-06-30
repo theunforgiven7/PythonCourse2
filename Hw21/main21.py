@@ -11,7 +11,21 @@ class Potion:
             raise ValueError('value error')
         self.volume = volume
             
-        def mix(self, other):
-            
-# a = Potion([1,24, 23], 2)
+    def mix(self, other):
+        if not isinstance(other, Potion):
+            raise ValueError('error class')
+        new_potion_value = self.volume + other.volume
+        new_potion_color = [(
+            self.color[el] + other.color[el]) // len(self.color) + len(other.color)
+                            for el in range(3)]
+
+        return Potion(new_potion_color, new_potion_value)
+
+
+potio_piperis = Potion([255, 255, 255], 7)
+potio_developing = Potion([51, 102, 51], 12)
+new_potion = potio_piperis.mix(potio_developing)
+
+print(new_potion.color)
+print(new_potion.volume)
 
