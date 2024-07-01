@@ -66,19 +66,43 @@ class Potion:
             color (list): список інтенсивності кольорів RGB
             volume (int): число яке позначає об'єм в умовних магічних одиницях
         """
-        if not isinstance(color, list) or len(color) != 3:
-            raise ColorError(color)
-        for i in color:
+        def __init__(self, color: list, volume: int):
+            self.color = color
+            self.volume = volume
+
+    @property
+    def color(self):
+        return self._color
+
+    @color.setter
+    def color(self, value: list):
+        if not isinstance(value, list) or len(value) != 3:
+            raise ColorError(value)
+        for i in value:
             if not isinstance(i, int) or i < 0 or i > 255:
-                raise ColorError(color)
+                raise ColorError(value)
+        self._color = value
 
-        self.color = color
+    @property
+    def volume(self):
+        return self._volume
 
-        if not isinstance(volume, int) or volume <= 0:
-            raise VolumeError(volume)
-        self.volume = volume
+    @volume.setter
+    def volume(self, value: int):
+        if not isinstance(value, int) or value <= 0:
+            raise VolumeError(value)
+        self._volume = value
 
-    def mix(self, other: object) -> 'Potion':
+    def mix(self, other: 'Potion') -> 'Potion':
+        """
+        Метод для змішування поточного зілля з іншим зіллям(того ж классу)
+        та повертає нове змішане зілля
+        Args:
+            other (Potion): Інший об'єкт класу Potion,
+            з яким потрібно змішати зілля
+        Returns:
+            Potion: Новий об'єкт класу Potion, що представляє змішане зілля
+        """
         if not isinstance(other, Potion):
             raise MixFuncError()
         new_potion_value = self.volume + other.volume
