@@ -96,12 +96,11 @@ class Potion:
     def mix(self, other: 'Potion') -> 'Potion':
         """
         Метод для змішування поточного зілля з іншим зіллям(того ж классу)
-        та повертає нове змішане зілля
         Args:
             other (Potion): Інший об'єкт класу Potion,
             з яким потрібно змішати зілля
         Returns:
-            Potion: Новий об'єкт класу Potion, що представляє змішане зілля
+            Potion: Новий об'єкт класу Potion який є поєднанням двох попередніх об'єктів Potion
         """
         if not isinstance(other, Potion):
             raise MixFuncError()
