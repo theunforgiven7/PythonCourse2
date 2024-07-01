@@ -70,11 +70,9 @@ class Potion:
             self.color = color
             self.volume = volume
 
-    @property
     def color(self):
         return self._color
 
-    @color.setter
     def color(self, value: list):
         if not isinstance(value, list) or len(value) != 3:
             raise ColorError(value)
@@ -83,11 +81,9 @@ class Potion:
                 raise ColorError(value)
         self._color = value
 
-    @property
     def volume(self):
         return self._volume
 
-    @volume.setter
     def volume(self, value: int):
         if not isinstance(value, int) or value <= 0:
             raise VolumeError(value)
