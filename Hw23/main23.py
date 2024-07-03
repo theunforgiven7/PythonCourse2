@@ -4,7 +4,7 @@ import datetime
 
 
 class Customer(Model):
-    '''Клас модель, для опису таблиці з даними покупця'''
+    '''Клас модель, для опису таблиці з даними покупців'''
     idCustomer = AutoField(primary_key=True)
     Name = CharField(null=False)
     Surname = CharField(null=False)
