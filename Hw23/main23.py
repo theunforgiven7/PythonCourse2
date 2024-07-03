@@ -59,11 +59,11 @@ Review.create_table()
 
 Customer.insert_many(
     [
-        {'Name': 'Галина', 'Surname': 'Маринівна', 'email': 'alone@5a4m32e.com', 'Country': 'Ukrain'},
+        {'Name': 'Галина', 'Surname': 'Маринівна', 'email': 'alone@5a4m32e.com', 'Country': 'Ukraine'},
         {'Name': 'Денис', 'Surname': 'Зайко', 'email': 'byeboy5@4e32mple.com', 'Country': 'Latvia'},
         {'Name': 'Анна', 'Surname': 'Сулейма', 'email': 'suleimansha@e5m4p32.com', 'Country': 'France'},
         {'Name': 'Юлія', 'Surname': 'Бойко', 'email': 'bro@5e432p.com', 'Country': 'Poland'},
-        {'Name': 'Олександр', 'Surname': ' Усік', 'email': 'УСІК@022.com', 'Country': 'Ukrain'}
+        {'Name': 'Олександр', 'Surname': ' Усік', 'email': 'УСІК@022.com', 'Country': 'Ukraine'}
     ]
 ).execute()
 
