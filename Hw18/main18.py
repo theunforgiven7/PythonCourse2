@@ -3,7 +3,7 @@ from sqlite3 import connect
 
 with connect('C:/Users/mariy/Downloads/Chinook_Sqlite.sqlite') as con:
     cur = con.cursor()
-    1
+    #1
     cur.execute('''SELECT * FROM Customer
                                 LIMIT 3''')
     print(*cur.fetchall(), sep ='\n')
