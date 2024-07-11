@@ -4,7 +4,9 @@ from sqlite3 import connect
 with connect('Chinook_Sqlite.sqlite') as con:
     cur = con.cursor()
 
-    cur.execute('''SELECT *, MAX(Company)
+    cur.execute('''SELECT *
+                                FROM Customer
+                                WHERE LENGHT(Company) == (SELECT MAX(LENGHT(Company)
                                 FROM Customer
                                 ''')
     print(*cur.fetchone(), sep=' ')
