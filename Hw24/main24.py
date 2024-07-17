@@ -5,7 +5,7 @@ def file_processing(line: str) -> dict:
     """
     Функція для обробки рядка з файлу
     Args:
-        line (str): рядок з данними
+        line (str): рядок з даними
     Returns:
         dict: сформованний словник
     """
@@ -29,7 +29,7 @@ def insert_data(file_path: str, collection_name: str) -> None:
     функція для вставки даних з файлу в колекцію MongoDB
     Args:
         filename (str): шлях до файла
-        collection_name (str): ім'я колекції, для ставки даних
+        collection_name (str): назва колекції, для ставки даних
     Return:
         None
     """
