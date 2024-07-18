@@ -1,7 +1,5 @@
-
 import pymongo
 
-# Подключение
 cl = pymongo.MongoClient("mongodb://localhost:27017/")
 db = cl["Mydatabase"]
 col = db["projects"]
